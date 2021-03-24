@@ -16,6 +16,7 @@ export interface MediaRecorderProps {
   onError?: (e: Error) => void;
   mediaRecorderOptions?: object;
   mediaStreamConstraints: MediaStreamConstraints;
+  customMediaStream?: MediaStream | null;
 }
 
 export interface MediaRecorderHookOptions {
