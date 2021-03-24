@@ -101,6 +101,8 @@ Creates a custom media recorder object using the [MediaRecorder API](https://dev
 |onDataAvailable|`function`|Callback to run when recording data exists.
 |mediaRecorderOptions|`object`|Options used for creating [`MediaRecorder`](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder/MediaRecorder) object.
 |mediaStreamConstraints<b>*</b>|[`MediaStreamConstraints`](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamConstraints)|Options used for creating a MediaStream object from [`getDisplayMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia) and [`getUserMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia).
+|MediaStream<b>*</b>|[`MediaStream`] can be canvas.captureStream or video.captureStream or audio.captureStream()
+
 
 > _**NOTE**: **\*** means it is required_
 
