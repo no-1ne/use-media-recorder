@@ -45,6 +45,7 @@ const noop = () => {};
  * @property {ErrorCallback} [onError]
  * @property {Object} [mediaRecorderOptions]
  * @property {MediaStreamConstraints} mediaStreamConstraints
+ * @property {MediaStream} customMediaStream
  *
  * @typedef MediaRecorderHookOptions
  * @type {Object}
@@ -74,7 +75,8 @@ function useMediaRecorder({
   onError = noop,
   mediaRecorderOptions,
   onDataAvailable = noop,
-  mediaStreamConstraints = {}
+  mediaStreamConstraints = {},
+  customMediaStream = null
 }) {
   let mediaChunks = React.useRef([]);
   let mediaStream = React.useRef(null);
@@ -93,7 +95,9 @@ function useMediaRecorder({
 
     try {
       let stream;
-
+      if (customMediaStream) {
+        stream = customMediaStream;
+      } 
       if (recordScreen) {
         stream = await window.navigator.mediaDevices.getDisplayMedia(
           mediaStreamConstraints
@@ -250,7 +254,7 @@ function useMediaRecorder({
         );
       }
     }
-  }, [mediaStreamConstraints, mediaRecorderOptions, recordScreen]);
+  }, [mediaStreamConstraints, mediaRecorderOptions, recordScreen, customMediaStream]);
 
   return {
     error,
